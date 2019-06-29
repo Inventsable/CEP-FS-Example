@@ -35,14 +35,21 @@ export default {
 
     // Example stat()
     fs.stat(`${root}/.debug`, (err, stats) => {
-      // See the data
+      // See the data logged in console
       console.log(stats)
       if (stats.isFile())
         console.log('This is a file');
       else if (stats.isDirectory()) 
-          console.log('This is a directory');
+        console.log('This is a directory');
 
     })
+
+    // Example readFileSync()
+    let doc = fs.readFileSync(`${root}/.debug`, { encoding: 'utf-8' });
+    console.log(doc)
+
+    // Example writeFileSync()
+    fs.writeFileSync(`${root}/test.txt`, 'Hello World');
   }
   
 }
