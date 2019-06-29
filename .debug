@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+    <Extension Id="com.fstest.panel">
+        <HostList>
+    <Host Name="ILST" Port="4445" />
+    <Host Name="AEFT" Port="4446" />
+    <Host Name="PHXS" Port="4447" />
+        </HostList>
+    </Extension>
+</ExtensionList>
