@@ -4,8 +4,16 @@
 
 <script>
 
-// CEP doesn't let us access "require()" as a global if in an iframe. But we can take care of both production and development like this:
-const fs = /localhost/.test(document.location.href) ? cep_node.require('fs') : require('fs')
+// Since CEP doesn't allow require within an iframe, we need to include both entrypoints.
+
+// Before using require in any file, we need to define it like so:
+const require = require || cep_node.require;
+
+// Now this works for either context
+const fs = require('fs')
+
+// If we need to know whether Developer or Production context specifically, we can do this:
+// const fs = /localhost/.test(document.location.href) ? cep_node.require('fs') : require('fs')
 
 export default {
   name: 'test',
